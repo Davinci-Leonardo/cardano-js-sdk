@@ -1,6 +1,6 @@
-import Schema from '@cardano-ogmios/schema';
+import { Utxo } from '@cardano-ogmios/schema';
 import { Bytes, Cbor, Paginate } from '../dataTypes';
-export declare type GetUtxos = (amount?: Cbor, paginate?: Paginate) => Promise<Schema.Utxo | undefined>;
+export declare type GetUtxos = (amount?: Cbor, paginate?: Paginate) => Promise<Utxo | undefined>;
 export declare type GetBalance = () => Promise<Cbor>;
 export declare type GetUsedAddresses = (paginate?: Paginate) => Promise<Cbor[]>;
 export declare type GetUnusedAddresses = () => Promise<Cbor[]>;

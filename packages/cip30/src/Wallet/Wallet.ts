@@ -1,6 +1,6 @@
 import { WalletApi } from './WalletApi';
 import { ApiError, APIErrorCode } from '../errors';
-import { dummyLogger, Logger } from 'ts-log';
+import {  Logger } from 'ts-log';
 import { WalletPublic } from './WalletPublic';
 import { WindowMaybeWithCardano } from '../injectWindow';
 

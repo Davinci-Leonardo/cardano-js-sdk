@@ -2,13 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Wallet = void 0;
 const errors_1 = require("../errors");
-const ts_log_1 = require("ts-log");
 class Wallet {
     constructor(properties, api, requestAccess, options) {
         this.api = api;
         this.requestAccess = requestAccess;
         this.options = options;
-        this.logger = options.logger ?? ts_log_1.dummyLogger;
         this.name = properties.name;
         this.version = properties.version;
         if (typeof options.persistAllowList === 'undefined') {
@@ -32,7 +30,7 @@ class Wallet {
         if (this.options.persistAllowList) {
             const currentList = this.getAllowList();
             this.options.storage?.setItem(this.name, JSON.stringify([...currentList, appName]));
-            this.logger.debug({
+            console.log({
                 module: 'Wallet',
                 walletName: this.name,
                 allowList: this.getAllowList()
@@ -46,7 +44,7 @@ class Wallet {
     async enable(window) {
         const appName = window.location.hostname;
         if (this.options.persistAllowList && this.allowList.includes(appName)) {
-            this.logger.debug({
+            console.log({
                 module: 'Wallet',
                 walletName: this.name
             }, `${appName} has previously been allowed`);

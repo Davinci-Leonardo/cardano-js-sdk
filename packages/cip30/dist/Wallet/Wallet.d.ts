@@ -21,7 +21,6 @@ export declare class Wallet {
     readonly version: SpecificationVersion;
     readonly name: WalletName;
     private allowList;
-    private logger;
     constructor(properties: WalletProperties, api: WalletApi, requestAccess: RequestAccess, options?: WalletOptions);
     getPublicApi(window: WindowMaybeWithCardano): WalletPublic;
     private getAllowList;
