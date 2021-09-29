@@ -1,4 +1,4 @@
-import Schema from '@cardano-ogmios/schema';
+import { Utxo } from '@cardano-ogmios/schema';
 import { Bytes, Cbor, Paginate } from '../dataTypes';
 
 /**
@@ -13,7 +13,7 @@ import { Bytes, Cbor, Paginate } from '../dataTypes';
  *
  * Errors: `ApiError` | `PaginateError`
  */
-export type GetUtxos = (amount?: Cbor, paginate?: Paginate) => Promise<Schema.Utxo | undefined>;
+export type GetUtxos = (amount?: Cbor, paginate?: Paginate) => Promise<Utxo | undefined>;
 
 /**
  * Returns the total balance available of the wallet.
