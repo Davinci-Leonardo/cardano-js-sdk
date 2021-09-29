@@ -34,7 +34,7 @@ export class Wallet {
   readonly name: WalletName;
 
   private allowList: string[];
-  private logger: Logger;
+  // private logger: Logger;
 
   constructor(
     properties: WalletProperties,
@@ -42,7 +42,7 @@ export class Wallet {
     private requestAccess: RequestAccess,
     private options?: WalletOptions
   ) {
-    this.logger = options.logger ?? dummyLogger;
+    // this.logger = options.logger ?? dummyLogger;
     this.name = properties.name;
     this.version = properties.version;
 
@@ -73,7 +73,7 @@ export class Wallet {
       const currentList = this.getAllowList();
       // Todo: Encrypt
       this.options.storage?.setItem(this.name, JSON.stringify([...currentList, appName]));
-      this.logger.debug(
+      console.log(
         {
           module: 'Wallet',
           walletName: this.name,
@@ -117,7 +117,7 @@ export class Wallet {
     const appName = window.location.hostname;
 
     if (this.options.persistAllowList && this.allowList.includes(appName)) {
-      this.logger.debug(
+      console.log(
         {
           module: 'Wallet',
           walletName: this.name
